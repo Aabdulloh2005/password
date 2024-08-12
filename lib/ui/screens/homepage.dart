@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:password/ui/screens/pasword_screen.dart';
+import 'package:password/ui/screens/settings_screen.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -8,24 +8,25 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SizedBox(
-          width: double.infinity,
-          child: FloatingActionButton(
+      appBar: AppBar(
+        title: const Text("Homepage"),
+        actions: [
+          IconButton(
             onPressed: () {
               Navigator.of(context).push(
                 CupertinoPageRoute(
-                  builder: (context) => const PasswordScreen(),
+                  builder: (context) => SettingsScreen(),
                 ),
               );
             },
-            child: Text("Set Password"),
+            icon: const Icon(Icons.settings),
           ),
+        ],
+      ),
+      body: const Center(
+        child: Text(
+          "HomePage",
+          style: TextStyle(fontSize: 24),
         ),
       ),
     );
